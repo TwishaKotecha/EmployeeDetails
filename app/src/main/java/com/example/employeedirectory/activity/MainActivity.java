@@ -3,6 +3,7 @@ package com.example.employeedirectory.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +29,10 @@ public class MainActivity extends AppCompatActivity implements ServiceCallBack {
 
     @BindView(R.id.recEmpDetails)
     RecyclerView recEmpDetails;
+
+    @BindView(R.id.swipe_container)
+    SwipeRefreshLayout swipe_container;
+
     EmployeeDetailsAdapter empDetailsAdapter;
     private ArrayList<EmployeeDetailsModel.Employees> empDetailsList;
 
@@ -51,7 +56,13 @@ public class MainActivity extends AppCompatActivity implements ServiceCallBack {
         recEmpDetails.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
         recEmpDetails.setAdapter(empDetailsAdapter);
 
+        //swip listener
+        swipe_container.setOnRefreshListener(() -> {
+            RxApiRequestHandler.getEmployeeApi(MainActivity.this, MainActivity.this);
+            swipe_container.setRefreshing(false);
+        });
     }
+
 
     @Override
     public void onSuccess(String requestTag, JsonElement data) {

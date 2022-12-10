@@ -113,8 +113,8 @@ public class Utils {
             if (toast != null) {
                 toast.cancel();
             }
-            toast = SToast.makeText(context, msg.trim(), SToast.LENGTH_LONG, 0, true);
-            toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, (int) context.getResources().getDimension(R.dimen._40sdp));
+            toast = SToast.makeText(context, msg.trim(), SToast.LENGTH_SHORT, 0, true);
+            toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, (int) context.getResources().getDimension(R.dimen._40sdp));
             toast.show();
         } catch (Exception e) {
             e.printStackTrace();

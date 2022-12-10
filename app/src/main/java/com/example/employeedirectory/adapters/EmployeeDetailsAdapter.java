@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 public class EmployeeDetailsAdapter extends RecyclerView.Adapter<EmployeeDetailsAdapter.RewardViewHolder> {
     Context context;
     ArrayList<EmployeeDetailsModel.Employees> empDetailsModels;
+    boolean isImageFitToScreen;
 
     public EmployeeDetailsAdapter(Context context, ArrayList<EmployeeDetailsModel.Employees> empDetailsModels) {
         this.context = context;
@@ -76,8 +78,22 @@ public class EmployeeDetailsAdapter extends RecyclerView.Adapter<EmployeeDetails
             holder.txtTeam.setVisibility(View.GONE);
         }
 
-        if (!TextUtils.isEmpty(empDetailsModels.get(position).getPhoto_url_small()))
+        if (!TextUtils.isEmpty(empDetailsModels.get(position).getPhoto_url_small())) {
+
             Utils.glideImage(context, empDetailsModels.get(position).getPhoto_url_small(), holder.imgImage);
+        }
+
+        holder.imgImage.setOnClickListener(v -> {
+            if (isImageFitToScreen) {
+                isImageFitToScreen = false;
+                holder.imgImage.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                holder.imgImage.setAdjustViewBounds(true);
+            } else {
+                isImageFitToScreen = true;
+                holder.imgImage.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+                holder.imgImage.setScaleType(ImageView.ScaleType.FIT_XY);
+            }
+        });
     }
 
     @Override

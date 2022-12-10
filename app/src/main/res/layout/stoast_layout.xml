@@ -4,35 +4,37 @@
     android:id="@+id/toast_type"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center"
+    android:layout_marginBottom="@dimen/_15sdp"
     android:background="@drawable/default_shape"
     android:orientation="horizontal"
-    android:paddingEnd="@dimen/_10sdp"
     android:paddingStart="@dimen/_3sdp"
     android:paddingTop="@dimen/_1sdp"
+    android:paddingEnd="@dimen/_10sdp"
     android:paddingBottom="@dimen/_1sdp"
     tools:ignore="MissingPrefix">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="@dimen/_25sdp"
-        android:layout_height="@dimen/_25sdp"
-        android:src="@drawable/ic_toast"
-        android:scaleType="fitCenter"
-        android:layout_gravity="center_vertical"/>
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageView4"-->
+    <!--        android:layout_width="@dimen/_25sdp"-->
+    <!--        android:layout_height="@dimen/_25sdp"-->
+    <!--        android:layout_gravity="center_vertical"-->
+    <!--        android:scaleType="fitCenter"-->
+    <!--        android:src="@drawable/ic_toast" />-->
 
     <TextView
         android:id="@+id/toast_text"
-        android:text="fdfsdfsf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
-        android:layout_marginLeft="@dimen/_5sdp"
-        android:textColor="@android:color/black"
-        android:layout_gravity="center_vertical"
         android:gravity="center_vertical|left"
+        android:text="@string/toast"
+        android:textColor="@android:color/black"
         android:textSize="@dimen/_11ssp"
-         />
+        tools:ignore="RtlHardcoded" />
 
 
 </LinearLayout>

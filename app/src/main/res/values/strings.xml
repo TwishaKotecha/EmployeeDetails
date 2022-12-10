@@ -5,4 +5,5 @@
     <string name="name">name</string>
     <string name="email">email</string>
     <string name="employee_profile">Employee Profile</string>
+    <string name="toast">Toast</string>
 </resources>
