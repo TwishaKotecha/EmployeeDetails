@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EmployeeDirectory</string>
+    <string name="noInternet">Internet not available,\nCheck your internet connectivity &amp; try again.</string>
+    <string name="serverError">Server error, something went wrong</string>
+    <string name="name">name</string>
+    <string name="email">email</string>
+    <string name="employee_profile">Employee Profile</string>
+</resources>
